@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Disorder Prediction English</title>
+    <head>
+      <style>
+        /* General styles */
+        body {
+          font-family: "Arial", sans-serif;
+          background-color: #f0f4f8;
+          color: #333;
+          margin: 0;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 100vh;
+          box-sizing: border-box;
+        }
+
+        h1 {
+          color: #4a90e2;
+          font-size: 2.5rem;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        form {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 600px;
+          box-sizing: border-box;
+        }
+
+        label {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 8px;
+          color: #555;
+        }
+
+        input[type="number"],
+        select {
+          width: calc(100% - 20px);
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          margin-bottom: 20px;
+          font-size: 1rem;
+          background-color: #f9f9f9;
+          transition: border 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+          border-color: #4a90e2;
+          outline: none;
+          background-color: #fff;
+        }
+
+        button {
+          background-color: #4a90e2;
+          color: #fff;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 6px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          width: 100%;
+          transition: background-color 0.3s ease;
+          margin-top: 20px;
+        }
+
+        button:hover {
+          background-color: #357abd;
+        }
+
+        p {
+          font-size: 1.1rem;
+          color: #333;
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 2rem;
+          }
+
+          input[type="number"],
+          select {
+            font-size: 0.9rem;
+          }
+
+          button {
+            font-size: 1rem;
+          }
+        }
+      </style>
+    </head>
+
+    <head>
+      <head>
+        <style>
+          /* General styles */
+          body {
+            font-family: "Arial", sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+          }
+
+          h1 {
+            color: #4a90e2;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+          }
+
+          form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+          }
+
+          label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+          }
+
+          input[type="number"],
+          select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: border 0.3s ease;
+          }
+
+          input[type="number"]:focus,
+          select:focus {
+            border-color: #4a90e2;
+            outline: none;
+            background-color: #fff;
+          }
+
+          button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+          }
+
+          button:hover {
+            background-color: #357abd;
+          }
+
+          p {
+            font-size: 1.1rem;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+          }
+
+          /* Responsive design */
+          @media (max-width: 768px) {
+            h1 {
+              font-size: 2rem;
+            }
+
+            input[type="number"],
+            select {
+              font-size: 0.9rem;
+            }
+
+            button {
+              font-size: 1rem;
+            }
+          }
+        </style>
+      </head>
+    </head>
+  </head>
+  <body>
+    <h1 id="header">Predict Speech Disorder</h1>
+    <form action="/predict?lang={{ lang }}" method="post">
+      <label for="age" id="ageLabel">Age:</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        step="any"
+        required
+      /><br /><br />
+
+      <label for="speech_rate" id="speechRateLabel"
+        >Speech Rate (words per minute):</label
+      >
+      <input
+        type="number"
+        id="speech_rate"
+        name="speech_rate"
+        step="any"
+        required
+      /><br /><br />
+
+      <label for="pronunciation_difficulty" id="pronunciationDifficultyLabel"
+        >Difficulty Pronouncing Certain Sounds:</label
+      >
+      <select
+        id="pronunciation_difficulty"
+        name="pronunciation_difficulty"
+        required
+      >
+        <option value="1" id="yesOptionPronunciation">Yes</option>
+        <option value="0" id="noOptionPronunciation">No</option>
+      </select>
+      <br /><br />
+
+      <label for="sound_substitution" id="soundSubstitutionLabel"
+        >Sound Substitution:</label
+      >
+      <select id="sound_substitution" name="sound_substitution" required>
+        <option value="1" id="yesOptionSound">Yes</option>
+        <option value="0" id="noOptionSound">No</option>
+      </select>
+      <br /><br />
+
+      <label for="word_repetition" id="wordRepetitionLabel"
+        >Word Repetition:</label
+      >
+      <select id="word_repetition" name="word_repetition" required>
+        <option value="1" id="yesOptionRepetition">Yes</option>
+        <option value="0" id="noOptionRepetition">No</option>
+      </select>
+      <br /><br />
+
+      <label for="speech_pauses" id="speechPausesLabel">Speech Pauses:</label>
+      <select id="speech_pauses" name="speech_pauses" required>
+        <option value="1" id="yesOptionPauses">Yes</option>
+        <option value="0" id="noOptionPauses">No</option>
+      </select>
+      <br /><br />
+
+      <label for="nasal_speech" id="nasalSpeechLabel">Nasal Speech:</label>
+      <select id="nasal_speech" name="nasal_speech" required>
+        <option value="1" id="yesOptionNasal">Yes</option>
+        <option value="0" id="noOptionNasal">No</option>
+      </select>
+      <br /><br />
+
+      <label for="monotone_speech" id="monotoneSpeechLabel"
+        >Monotone Speech:</label
+      >
+      <select id="monotone_speech" name="monotone_speech" required>
+        <option value="1" id="yesOptionMonotone">Yes</option>
+        <option value="0" id="noOptionMonotone">No</option>
+      </select>
+      <br /><br />
+
+      <button type="submit" id="predictButton">{{ predict }}</button>
+      <p id="result">{{ result }}</p>
+    </form>
+
+    <script>
+      // Read the language parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get("lang");
+
+      // Load translations based on the selected language
+      if (lang) {
+        fetch(`/locales/${lang}.json`)
+          .then((response) => response.json())
+          .then((translations) => {
+            document.title = translations.title;
+            document.getElementById("header").textContent = translations.header;
+            document.getElementById("ageLabel").textContent = translations.age;
+            document.getElementById("speechRateLabel").textContent =
+              translations.speech_rate;
+            document.getElementById(
+              "pronunciationDifficultyLabel"
+            ).textContent = translations.pronunciation_difficulty;
+            document.getElementById("soundSubstitutionLabel").textContent =
+              translations.sound_substitution;
+            document.getElementById("wordRepetitionLabel").textContent =
+              translations.word_repetition;
+            document.getElementById("speechPausesLabel").textContent =
+              translations.speech_pauses;
+            document.getElementById("nasalSpeechLabel").textContent =
+              translations.nasal_speech;
+            document.getElementById("monotoneSpeechLabel").textContent =
+              translations.monotone_speech;
+            document.getElementById("predictButton").textContent =
+              translations.predict;
+
+            // Update Yes/No options in dropdowns
+            const yesText = translations.yes;
+            const noText = translations.no;
+
+            document.getElementById("yesOptionPronunciation").textContent =
+              yesText;
+            document.getElementById("noOptionPronunciation").textContent =
+              noText;
+
+            document.getElementById("yesOptionSound").textContent = yesText;
+            document.getElementById("noOptionSound").textContent = noText;
+
+            document.getElementById("yesOptionRepetition").textContent =
+              yesText;
+            document.getElementById("noOptionRepetition").textContent = noText;
+
+            document.getElementById("yesOptionPauses").textContent = yesText;
+            document.getElementById("noOptionPauses").textContent = noText;
+
+            document.getElementById("yesOptionNasal").textContent = yesText;
+            document.getElementById("noOptionNasal").textContent = noText;
+
+            document.getElementById("yesOptionMonotone").textContent = yesText;
+            document.getElementById("noOptionMonotone").textContent = noText;
+          })
+          .catch((error) => console.error("Error loading translation:", error));
+      }
+    </script>
+  </body>
+</html>

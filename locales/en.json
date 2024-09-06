@@ -1,0 +1,21 @@
+{
+  "title": "Speech Disorder Prediction",
+  "header": "Predict Speech Disorder",
+  "age": "Age:",
+  "speech_rate": "Speech Rate (words per minute):",
+  "pronunciation_difficulty": "Difficulty Pronouncing Certain Sounds:",
+  "yes": "Yes",
+  "no": "No",
+  "predict": "Predict",
+  "sound_substitution": "Sound Substitution:",
+  "word_repetition": "Word Repetition:",
+  "speech_pauses": "Speech Pause:",
+  "nasal_speech": "Nasal Speech:",
+  "monotone_speech": "Monotone Speech:",
+  "disorder_mapping": {
+    "0": "Articulation",
+    "1": "Phonological",
+    "2": "Fluency",
+    "3": "Resonance"
+  }
+}
